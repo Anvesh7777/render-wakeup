@@ -1,0 +1,26 @@
+name: Wake Render Server
+
+on:
+  schedule:
+    # 7:55 AM IST
+    - cron: "25 2 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  wake:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wake Chroma Server
+        run: |
+          echo "Waking server..."
+
+          curl -L \
+          --max-time 120 \
+          --retry 5 \
+          --retry-delay 15 \
+          --user-agent "Mozilla/5.0" \
+          https://ai-interview-chroma.onrender.com/api/v1/heartbeat
+
+          echo "Done"
