@@ -2,8 +2,7 @@ name: Wake Render Server
 
 on:
   schedule:
-    # 7:55 AM IST
-    - cron: "25 2 * * *"
+  - cron: "20 4 * * *"
 
   workflow_dispatch:
 
