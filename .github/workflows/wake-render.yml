@@ -1,10 +1,11 @@
 name: Wake Render Server
 
 on:
-  workflow_dispatch:
-
+  # 7:30 AM - 8:00 AM IST
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: "0,5,10,15,20,25,30 2 * * *"
+
+  workflow_dispatch:
 
 jobs:
   wake:
