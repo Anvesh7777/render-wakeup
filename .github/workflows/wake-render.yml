@@ -1,10 +1,10 @@
 name: Wake Render Server
 
 on:
-  schedule:
-  - cron: "*/5 * * * *"
-
   workflow_dispatch:
+
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   wake:
@@ -16,10 +16,10 @@ jobs:
           echo "Waking server..."
 
           curl -L \
-          --max-time 120 \
-          --retry 5 \
-          --retry-delay 15 \
-          --user-agent "Mozilla/5.0" \
-          https://ai-interview-chroma.onrender.com/api/v1/heartbeat
+            --max-time 120 \
+            --retry 5 \
+            --retry-delay 15 \
+            --user-agent "Mozilla/5.0" \
+            https://ai-interview-chroma.onrender.com/api/v1/heartbeat
 
           echo "Done"
